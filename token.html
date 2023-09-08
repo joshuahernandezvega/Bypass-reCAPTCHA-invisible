@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form protected by reCAPTCHA</title>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="process.php" method="get">
+        <label for="user">User:</label>
+        <input type="text" id="user" name="user" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <div class="g-recaptcha" data-sitekey="YOUR-SITE-KEY" data-size="invisible"></div>
+        <br>
+        <button type="submit" id="submitBtn">Login</button>
+    </form>
+    
+    <script>
+        // auto submit recaptcha
+        window.addEventListener('load', function() {
+            grecaptcha.execute();
+        });
+
+        // handling and saving captcha response
+        function recaptchaCallback(response) {
+            console.log('Valor de g-recaptcha-response:', response);
+            var recaptchaSuccessEvent = new CustomEvent('recaptchaSuccess', { detail: response });
+            window.dispatchEvent(recaptchaSuccessEvent);
+        }
+
+        //sending the form
+        window.addEventListener('recaptchaSuccess', function(event) {
+            var form = document.querySelector('form');
+            form.submit();
+        });
+    </script>
+</body>
+</html>
