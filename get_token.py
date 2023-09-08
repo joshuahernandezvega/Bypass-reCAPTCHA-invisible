@@ -59,7 +59,7 @@ def bot():
     return token
 
 #we start the client for our bot
-client = webdriver.Firefox(options=firefox_options)
+client = webdriver.Firefox()
 
 #Loop to be getting tokens as many as we want to
 while True:
