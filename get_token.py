@@ -44,8 +44,9 @@ def bot():
     client.execute_script("document.getElementById('submitBtn').click()")
     #we close the browser
     #client.quit()
-
-   #the file tokens.txt is created by process.php
+    
+    token = ""
+    #the file tokens.txt is created by process.php
     with open("tokens.txt", "r") as file:
         token = file.readline().strip()
 
@@ -55,7 +56,8 @@ def bot():
     except OSError:
         pass
       
-     #so if we call the bot, we want to finally return a valid recaptcha token
+    #so if we call the bot, we want to finally return a valid recaptcha token
+    print(f"Current token is: {token}")
     return token
 
 #we start the client for our bot
