@@ -20,7 +20,7 @@ def login(token):
         "Content-Type": "application/json"
     }
     data = {
-        "nit": username,
+        "username": username,
         "password":password
     }
     response = requests.post(url, proxies=proxies, verify=False, headers=headers, json=data)
