@@ -1,6 +1,11 @@
 # Bypass-reCAPTCHA-invisible
 Have you ever wondered how you can get a valid recaptcha token to send a valid HTTP request? While doing web pentest for a client, I figured out this idea that can get you a token so that you can implement it with a Python function of your own to interact with your target. It might be not the best way, but it helped me a lot. 
 
+IMPORTANT NOTE: This method works as long as the following options was disabled by the administrators:
+
+![image](https://github.com/joshuahernandezvega/Bypass-reCAPTCHA-invisible/assets/31811373/b43ce646-3857-4ebb-ba50-97b2764dce2f)
+
+
 Disclaimer: This has been made for ethical hacking purposes. Make sure you have the permissions if you´re using this against a target.
 
 In order to use this script, we need to have the three files: get_token.py, process.php, and token.html in the same folder.
